@@ -40,11 +40,18 @@
 	<!-- Nuget package related properties -->
 	<PropertyGroup>
 		<GenerateDocumentationFile>true</GenerateDocumentationFile>
+		<GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+
 		<TargetFramework>net$(DotNetVersionUsed).0</TargetFramework>
 
 		<EnablePackageValidation>true</EnablePackageValidation>
 		<AssemblyName>$(RootNamespace)</AssemblyName>
 		<PackageId>$(RootNamespace)</PackageId>
+		<IncludeSymbols>false</IncludeSymbols>
+		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
 
+		<AssemblyVersion>$(Version)</AssemblyVersion>
+		<Version>0.0.1</Version>
+		<FileVersion>$(Version)</FileVersion>
 	</PropertyGroup>
 </Project>

@@ -6,8 +6,8 @@ name: .NET
 on:
   push:
     branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+#  pull_request:
+#    branches: [ "main" ]
 
 env:
   NUGET_FEED: https://api.nuget.org/v3/index.json
@@ -15,16 +15,18 @@ env:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v4
+
     - name: Setup .NET
       uses: actions/setup-dotnet@v4
       with:
         dotnet-version: 8.0.x
+
     - name: Pack
       run: dotnet pack -o nupkg --configuration Release
+
     - name: Push to NuGet
       run: dotnet nuget push ./nupkg/*.nupkg --api-key $NUGET_KEY --source $NUGET_FEED
