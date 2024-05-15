@@ -4,7 +4,7 @@ using Microsoft.Extensions.Logging;
 namespace Auriga.Toolkit.Plugins;
 
 /// <summary>
-/// Basic plugin.
+/// Basic feature plugin base.
 /// </summary>
 [ExcludeFromCodeCoverage]
 public abstract class FeaturePlugin : IFeaturePlugin

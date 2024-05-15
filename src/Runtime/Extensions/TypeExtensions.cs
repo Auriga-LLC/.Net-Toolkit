@@ -1,4 +1,4 @@
-namespace Auriga.Toolkit.Runtime.Abstractions;
+namespace Toolkit.Extensions.Runtime.Extensions;
 
 /// <summary>
 /// Type extension methods.
@@ -8,7 +8,7 @@ public static class TypeExtensions
 	/// <summary>
 	/// Separator string.
 	/// </summary>
-	public const string Separator = ", ";
+	internal const string Separator = ", ";
 
 	/// <summary>
 	/// Gets type name as "{TypeFullName}, {AssemblyName}".

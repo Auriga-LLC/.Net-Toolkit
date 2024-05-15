@@ -23,9 +23,9 @@ public static class EnvironmentHelper
 		|| !string.IsNullOrWhiteSpace(Environment.GetEnvironmentVariable(EnvironmentVariable.AspNetVersion));
 
 	/// <summary>
-	/// Gets environmnet mode variable value.
+	/// Gets environment mode variable value.
 	/// </summary>
-	/// <returns>Environmnet mode name.</returns>
+	/// <returns>environment mode name.</returns>
 	/// <exception cref="InvalidOperationException">If not environment variable set.</exception>
 	public static string GetEnvironmentMode()
 	{

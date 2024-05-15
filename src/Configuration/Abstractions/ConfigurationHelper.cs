@@ -9,7 +9,7 @@ namespace Auriga.Toolkit.Configuration.Abstractions;
 public static class ConfigurationHelper
 {
 	/// <summary>
-	/// Bootstraps configuration from <c>appsettings.json</c> in environmnet dependent manner.
+	/// Bootstraps configuration from <c>appsettings.json</c> in environment dependent manner.
 	/// </summary>
 	/// <returns><see cref="IConfigurationRoot"/> to be used as configuration source.</returns>
 	public static IConfigurationRoot BootstrapConfiguration()

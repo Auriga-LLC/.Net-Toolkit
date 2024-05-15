@@ -99,6 +99,7 @@ csharp_preserve_single_line_statements = false:none
 csharp_prefer_static_local_function = true:suggestion
 csharp_prefer_simple_using_statement = false:none
 csharp_style_prefer_switch_expression = true:suggestion
+csharp_style_prefer_primary_constructors = true
 dotnet_style_readonly_field = true:suggestion
 
 # Expression-level preferences
@@ -129,7 +130,7 @@ csharp_style_expression_bodied_local_functions = true:silent
 # Pattern matching
 csharp_style_pattern_matching_over_is_with_cast_check = true:suggestion
 csharp_style_pattern_matching_over_as_with_null_check = true:suggestion
-csharp_style_inlined_variable_declaration = true:suggestion
+csharp_style_inlined_variable_declaration = true:warning
 
 # Null checking preferences
 csharp_style_throw_expression = true:suggestion
@@ -207,21 +208,44 @@ dotnet_diagnostic.SYSLIB1045.severity = error
 ### Code style rules
 ###
 
+### Code-block preferences
+
+# Use primary constructor
+dotnet_diagnostic.IDE0290.severity = warning
+
 #### Expression-level preferences
 
 # Simplify member access
 dotnet_diagnostic.IDE0002.severity = warning
 
+# Inline variable declaration
+dotnet_diagnostic.IDE0018.severity = warning
+
 # Collection initialization can be simplified
 dotnet_diagnostic.IDE0028.severity = error
+
+# Use 'is null' check
+dotnet_diagnostic.IDE0041.severity = warning
 
 # Remove unnecessary expression value
 dotnet_diagnostic.IDE0058.severity = error
 csharp_style_unused_value_expression_statement_preference = discard_variable
 
+### Parameter preferences
+
+# Remove unused parameter
+dotnet_diagnostic.IDE0060.severity = error
+
+### var preferences
+dotnet_diagnostic.IDE0007.severity = warning
+dotnet_diagnostic.IDE0008.severity = warning
+
 ###
 ### Reliability rules
 ###
+
+# Dispose objects before losing scope
+dotnet_diagnostic.CA2000.severity = error
 
 # Forward the CancellationToken parameter to methods that take one
 dotnet_diagnostic.CA2016.severity = error
@@ -290,3 +314,10 @@ dotnet_diagnostic.RCS1249.severity = warning
 
 # Remove unnecessary braces
 dotnet_diagnostic.RCS1251.severity = warning
+
+####
+#### Diagnostic rules: Resharper
+####
+
+# Redundant lambda signature parentheses
+resharper_redundant_lambda_signature_parentheses_highlighting = warning
