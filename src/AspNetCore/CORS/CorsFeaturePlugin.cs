@@ -1,12 +1,8 @@
+using Auriga.Toolkit.Plugins;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Auriga.Toolkit.Configuration.Abstractions.Configuration;
-using Auriga.Toolkit.Configuration.Abstractions.Extensions;
-
-using SharedMessages = Auriga.Toolkit.Logging.Abstractions.LogMessages;
-using Auriga.Toolkit.Plugins;
 
 namespace Auriga.Toolkit.AspNetCore.CORS;
 
@@ -75,15 +71,15 @@ internal sealed class CorsFeaturePlugin : FeaturePlugin, IConfigurationCheckerPl
 				options.AddPolicy(policyName, configurePolicy: policyBuilder =>
 					{
 						_ = policyConfig.AllowedOrigins?.Count > 0
-							? policyBuilder.WithOrigins([..policyConfig.AllowedOrigins])
+							? policyBuilder.WithOrigins([.. policyConfig.AllowedOrigins])
 							: policyBuilder.AllowAnyOrigin();
 
 						_ = policyConfig.AllowedMethods?.Count > 0
-							? policyBuilder.WithMethods([..policyConfig.AllowedMethods])
+							? policyBuilder.WithMethods([.. policyConfig.AllowedMethods])
 							: policyBuilder.AllowAnyMethod();
 
 						_ = policyConfig.AllowedHeaders?.Count > 0
-							? policyBuilder.WithHeaders([..policyConfig.AllowedHeaders])
+							? policyBuilder.WithHeaders([.. policyConfig.AllowedHeaders])
 							: policyBuilder.AllowAnyHeader();
 
 						if (policyConfig.AllowCredentials)

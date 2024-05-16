@@ -1,7 +1,7 @@
-﻿using System.Collections.Concurrent;
+using System.Collections.Concurrent;
+using Auriga.Toolkit.Plugins;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
-using Auriga.Toolkit.Plugins;
 
 namespace Auriga.Toolkit.Logging.Microsoft;
 

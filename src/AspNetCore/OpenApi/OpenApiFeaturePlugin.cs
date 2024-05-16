@@ -1,8 +1,8 @@
+using Auriga.Toolkit.Plugins;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Auriga.Toolkit.Plugins;
 
 namespace Auriga.Toolkit.AspNetCore.OpenApi;
 

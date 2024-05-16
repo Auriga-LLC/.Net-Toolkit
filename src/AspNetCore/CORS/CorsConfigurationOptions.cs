@@ -1,6 +1,4 @@
 using System.Diagnostics.CodeAnalysis;
-using Auriga.Toolkit.Configuration.Abstractions.Configuration;
-using Auriga.Toolkit.Configuration.Abstractions.Models;
 
 namespace Auriga.Toolkit.AspNetCore.CORS;
 

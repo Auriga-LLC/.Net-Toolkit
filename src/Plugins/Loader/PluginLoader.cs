@@ -1,8 +1,8 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Reflection;
 using System.Text.RegularExpressions;
-using Microsoft.Extensions.Logging;
 using Auriga.Toolkit.Runtime.Extensions;
+using Microsoft.Extensions.Logging;
 
 using PluginAssemblyLoader = McMaster.NETCore.Plugins.PluginLoader;
 

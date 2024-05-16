@@ -2,8 +2,8 @@ using Microsoft.Extensions.Logging;
 using Serilog.Core;
 
 using MicrosoftLogger = Microsoft.Extensions.Logging.ILogger;
-using SerilogProvider = Serilog.Log;
 using SerilogLogger = Serilog.ILogger;
+using SerilogProvider = Serilog.Log;
 
 namespace Auriga.Toolkit.Logging.Serilog;
 

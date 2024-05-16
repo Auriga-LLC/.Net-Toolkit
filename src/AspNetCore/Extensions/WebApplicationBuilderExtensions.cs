@@ -1,5 +1,5 @@
-﻿using Microsoft.AspNetCore.Builder;
 using Auriga.Toolkit.Plugins;
+using Microsoft.AspNetCore.Builder;
 
 namespace Auriga.Toolkit.AspNetCore.Extensions;
 
@@ -27,7 +27,7 @@ public static class WebApplicationBuilderExtensions
 
 		_ = app.ExecutePluginsConfigurePipeline();
 
-		_	= app.ExecutePluginsConfigureRouting();
+		_ = app.ExecutePluginsConfigureRouting();
 
 		_ = app.ExecutePluginsPostOperations();
 
