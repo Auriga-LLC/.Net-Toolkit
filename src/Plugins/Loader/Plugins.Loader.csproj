@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<!-- Devtime related properties -->
+	<PropertyGroup>
+		<ExactProductName>$(RootProductNamespace).$(MsBuildProjectName)</ExactProductName>
+		<RootNamespace>$(RootProductNamespace).Plugins</RootNamespace>
+	</PropertyGroup>
+	<!-- Nuget package related properties -->
+	<PropertyGroup>
+		<AssemblyName>$(ExactProductName)</AssemblyName>
+		<PackageId>$(ExactProductName)</PackageId>
+	</PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Runtime\Abstractions\Runtime.Abstractions.csproj" />
+    <ProjectReference Include="..\..\Runtime\Extensions\Runtime.Extensions.csproj" />
+    <ProjectReference Include="..\Abstractions\Plugins.Abstractions.csproj" />
+    <ProjectReference Include="..\..\Configuration\Abstractions\Configuration.Abstractions.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="McMaster.NETCore.Plugins" Version="1.4.0" />
+	</ItemGroup>
+</Project>

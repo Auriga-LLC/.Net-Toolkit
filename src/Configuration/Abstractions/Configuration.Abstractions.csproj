@@ -1,0 +1,9 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<ItemGroup>
+		<PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="$(DotNetFrameworkPackagesVersion)"/>
+		<PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="$(DotNetFrameworkPackagesVersion)" />
+	</ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\..\Runtime\Abstractions\Runtime.Abstractions.csproj" />
+	</ItemGroup>
+</Project>
