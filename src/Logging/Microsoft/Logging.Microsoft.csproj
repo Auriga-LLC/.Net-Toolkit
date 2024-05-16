@@ -1,0 +1,10 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <ItemGroup>
+    <ProjectReference Include="..\..\Plugins\Loader\Plugins.Loader.csproj" />
+  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Microsoft.Extensions.Logging" Version="$(DotNetFrameworkPackagesVersion)"/>
+		<PackageReference Include="Microsoft.Extensions.Logging.Console" Version="$(DotNetFrameworkPackagesVersion)"/>
+		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="$(DotNetFrameworkPackagesVersion)"/>
+	</ItemGroup>
+</Project>
