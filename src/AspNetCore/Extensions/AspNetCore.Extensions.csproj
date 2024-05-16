@@ -1,0 +1,8 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <ItemGroup>
+    <ProjectReference Include="..\..\Plugins\Configuration\Extensions\Plugins.Configuration.Extensions.csproj"/>
+    <ProjectReference Include="..\..\Plugins\AspNetCore\Extensions\Plugins.AspNetCore.Extensions.csproj"/>
+    <ProjectReference Include="..\..\Plugins\DependencyInjection\Extensions\Plugins.DependencyInjection.Extensions.csproj"/>
+    <ProjectReference Include="..\..\Plugins\Hosting\Extensions\Plugins.Hosting.Extensions.csproj"/>
+	</ItemGroup>
+</Project>

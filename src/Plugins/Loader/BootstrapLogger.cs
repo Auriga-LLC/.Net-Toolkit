@@ -1,7 +1,7 @@
 using System.Reflection;
-using Microsoft.Extensions.Logging;
 using Auriga.Toolkit.Configuration.Abstractions;
 using Auriga.Toolkit.Runtime.Extensions;
+using Microsoft.Extensions.Logging;
 
 namespace Auriga.Toolkit.Plugins;
 

@@ -1,10 +1,10 @@
+using Auriga.Toolkit.Plugins;
+using Auriga.Toolkit.Runtime.Abstractions;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Serilog;
 using Serilog.Exceptions;
-using Auriga.Toolkit.Runtime.Abstractions;
-using Auriga.Toolkit.Plugins;
 
 namespace Auriga.Toolkit.Logging.Serilog;
 

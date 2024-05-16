@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <ItemGroup>
+    <ProjectReference Include="..\..\Plugins\Abstractions\Plugins.Abstractions.csproj" />
+    <ProjectReference Include="..\..\Plugins\AspNetCore\Abstractions\Plugins.AspNetCore.Abstractions.csproj" />
+    <ProjectReference Include="..\..\Plugins\DependencyInjection\Abstractions\Plugins.DependencyInjection.Abstractions.csproj" />
+  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="DotSwashbuckle.AspNetCore" Version="3.0.8" />
+		<PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="$(DotNetFrameworkPackagesVersion)" />
+	</ItemGroup>
+</Project>

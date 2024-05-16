@@ -1,0 +1,9 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<ItemGroup>
+		<ProjectReference Include="..\..\Plugins\Abstractions\Plugins.Abstractions.csproj" />
+		<ProjectReference Include="..\..\Plugins\DependencyInjection\Abstractions\Plugins.DependencyInjection.Abstractions.csproj" />
+		<ProjectReference Include="..\..\Plugins\Configuration\Abstractions\Plugins.Configuration.Abstractions.csproj" />
+		<ProjectReference Include="..\..\Plugins\AspNetCore\Abstractions\Plugins.AspNetCore.Abstractions.csproj" />
+		<ProjectReference Include="..\..\Configuration\Abstractions\Configuration.Abstractions.csproj" />
+	</ItemGroup>
+</Project>

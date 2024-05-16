@@ -1,5 +1,5 @@
-using Microsoft.Extensions.Configuration;
 using Auriga.Toolkit.Runtime.Abstractions;
+using Microsoft.Extensions.Configuration;
 
 namespace Auriga.Toolkit.Configuration.Abstractions;
 
