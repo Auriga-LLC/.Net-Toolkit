@@ -1,9 +1,9 @@
 ﻿using System.Collections.Concurrent;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
-using Toolkit.Extensions.Plugins;
+using Auriga.Toolkit.Plugins;
 
-namespace Toolkit.Extensions.Logging.Microsoft;
+namespace Auriga.Toolkit.Logging.Microsoft;
 
 /// <summary>
 /// Microsoft bootstrap logger setup.

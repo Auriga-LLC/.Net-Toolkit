@@ -1,4 +1,4 @@
-namespace Toolkit.Extensions.Runtime.Extensions;
+namespace Auriga.Toolkit.Runtime.Extensions;
 
 /// <summary>
 /// Type extension methods.

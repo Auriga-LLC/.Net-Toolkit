@@ -3,10 +3,10 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Serilog;
 using Serilog.Exceptions;
-using Toolkit.Extensions.Runtime.Abstractions;
-using Toolkit.Extensions.Plugins;
+using Auriga.Toolkit.Runtime.Abstractions;
+using Auriga.Toolkit.Plugins;
 
-namespace Toolkit.Extensions.Logging.Serilog;
+namespace Auriga.Toolkit.Logging.Serilog;
 
 /// <summary>
 /// ASP.NET logging provider setup plugin.

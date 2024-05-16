@@ -1,7 +1,7 @@
 using Microsoft.Extensions.Logging;
 using Serilog.Events;
 
-namespace Toolkit.Extensions.Logging.Serilog;
+namespace Auriga.Toolkit.Logging.Serilog;
 
 internal static class LogLevelMapper
 {

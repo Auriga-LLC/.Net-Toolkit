@@ -2,11 +2,11 @@
 using Microsoft.Extensions.Configuration;
 using Serilog;
 using Serilog.Exceptions;
-using Toolkit.Extensions.Plugins;
+using Auriga.Toolkit.Plugins;
 
 using MicrosoftLogger = Microsoft.Extensions.Logging.ILogger;
 
-namespace Toolkit.Extensions.Logging.Serilog;
+namespace Auriga.Toolkit.Logging.Serilog;
 
 /// <summary>
 /// Serilog bootstrap logger setup.

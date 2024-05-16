@@ -1,6 +1,6 @@
 using Microsoft.Extensions.Logging;
 
-namespace Toolkit.Extensions.Logging.Abstractions;
+namespace Auriga.Toolkit.Logging.Abstractions;
 
 #pragma warning disable CS1591
 
