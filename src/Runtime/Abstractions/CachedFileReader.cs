@@ -1,6 +1,6 @@
 using System.Collections.Concurrent;
 
-namespace Auriga.Toolkit.Runtime.Abstractions;
+namespace Auriga.Toolkit.Runtime;
 
 /// <summary>
 /// Cached file reader.

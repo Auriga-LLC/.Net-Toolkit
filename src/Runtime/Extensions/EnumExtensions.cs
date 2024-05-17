@@ -2,7 +2,7 @@ using System.Collections.Concurrent;
 using System.ComponentModel;
 using System.Reflection;
 
-namespace Auriga.Toolkit.Runtime.Extensions;
+namespace Auriga.Toolkit.Runtime;
 
 /// <summary>
 /// Enuns helper methods.

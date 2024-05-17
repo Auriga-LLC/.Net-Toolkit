@@ -1,9 +1,9 @@
-namespace Auriga.Toolkit.Runtime.Abstractions;
+namespace Auriga.Toolkit.Runtime;
 
 /// <summary>
-/// Operation result model.
+/// Operation context model.
 /// </summary>
-public class Operation
+public class OperationContext
 {
 	/// <summary>
 	/// Gets or sets the operation status.
@@ -19,8 +19,8 @@ public class Operation
 	/// Sets <see cref="IsSucceed"/> to <c>false</c> and sets/adds error.
 	/// </summary>
 	/// <param name="errorObj">Error.</param>
-	/// <returns>Current <see cref="Operation"/>, so that additional calls can be chained.</returns>
-	public virtual Operation SetError(Exception errorObj)
+	/// <returns>Current <see cref="OperationContext"/>, so that additional calls can be chained.</returns>
+	public virtual OperationContext SetError(Exception errorObj)
 	{
 		ArgumentNullException.ThrowIfNull(errorObj);
 
@@ -33,8 +33,8 @@ public class Operation
 	/// Sets <see cref="IsSucceed"/> to <c>false</c> and sets/adds error.
 	/// </summary>
 	/// <param name="errorText">Error text.</param>
-	/// <returns>Current <see cref="Operation"/>, so that additional calls can be chained.</returns>
-	public virtual Operation SetError(string? errorText)
+	/// <returns>Current <see cref="OperationContext"/>, so that additional calls can be chained.</returns>
+	public virtual OperationContext SetError(string? errorText)
 	{
 		IsSucceed = false;
 
@@ -51,8 +51,8 @@ public class Operation
 	/// Sets <see cref="IsSucceed"/> to <c>false</c> and sets/adds errors.
 	/// </summary>
 	/// <param name="errors">Errors text list.</param>
-	/// <returns>Current <see cref="Operation"/>, so that additional calls can be chained.</returns>
-	public virtual Operation SetErrors(IEnumerable<string>? errors)
+	/// <returns>Current <see cref="OperationContext"/>, so that additional calls can be chained.</returns>
+	public virtual OperationContext SetErrors(IEnumerable<string>? errors)
 	{
 		IsSucceed = false;
 
@@ -67,8 +67,8 @@ public class Operation
 	/// Sets <see cref="IsSucceed"/> to <c>false</c> and sets/adds errors.
 	/// </summary>
 	/// <param name="errors">Errors text list.</param>
-	/// <returns>Current <see cref="Operation"/>, so that additional calls can be chained.</returns>
-	public virtual Operation SetErrors(params string?[]? errors)
+	/// <returns>Current <see cref="OperationContext"/>, so that additional calls can be chained.</returns>
+	public virtual OperationContext SetErrors(params string?[]? errors)
 	{
 		if (errors == null)
 		{

@@ -1,7 +1,7 @@
 using System.Text;
 using InterpolatedStringFormatter;
 
-namespace Auriga.Toolkit.Runtime.Extensions;
+namespace Auriga.Toolkit.Runtime;
 
 /// <summary>
 /// String extensions.

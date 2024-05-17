@@ -1,6 +1,6 @@
 using Microsoft.Extensions.Hosting;
 
-namespace Auriga.Toolkit.Runtime.Abstractions;
+namespace Auriga.Toolkit.Runtime;
 
 /// <summary>
 /// Environment related extensions.
@@ -23,15 +23,19 @@ public static class EnvironmentHelper
 		|| !string.IsNullOrWhiteSpace(Environment.GetEnvironmentVariable(EnvironmentVariable.AspNetVersion));
 
 	/// <summary>
-	/// Gets environment mode variable value.
+	/// Gets Environment mode variable value.
 	/// </summary>
-	/// <returns>environment mode name.</returns>
+	/// <returns>Environment mode name.</returns>
 	/// <exception cref="InvalidOperationException">If not environment variable set.</exception>
 	public static string GetEnvironmentMode()
 	{
-		string? env = IsAspNetCoreApp()
+		string[] args = Environment.GetCommandLineArgs();
+		int envArg = Array.IndexOf(args, "--environment");
+		string? envFromArgs = envArg >= 0 ? args[envArg + 1] : null;
+
+		string? env = envFromArgs ?? (IsAspNetCoreApp()
 			? Environment.GetEnvironmentVariable(EnvironmentVariable.AspNetCoreEnvironmentMode)
-			: Environment.GetEnvironmentVariable(EnvironmentVariable.DotNetEnvironmentMode);
+			: Environment.GetEnvironmentVariable(EnvironmentVariable.DotNetEnvironmentMode));
 		if (string.IsNullOrWhiteSpace(env))
 		{
 			throw new InvalidOperationException("*_ENVIRONMENT variable not set.");

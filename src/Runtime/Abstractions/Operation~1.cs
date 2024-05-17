@@ -1,7 +1,7 @@
-namespace Auriga.Toolkit.Runtime.Abstractions;
+namespace Auriga.Toolkit.Runtime;
 
 /// <summary>
-/// Operation result model.
+/// Operation context model with result.
 /// </summary>
 /// <typeparam name="T">Result model type.</typeparam>
 /// <example>
@@ -11,7 +11,7 @@ namespace Auriga.Toolkit.Runtime.Abstractions;
 /// veturn result.SetError("EntityId cannot be empty");
 /// </code>
 /// </example>
-public class Operation<T> : Operation
+public class OperationContext<T> : OperationContext
 {
 	/// <summary>
 	/// Gets or sets the result entity.
@@ -19,11 +19,11 @@ public class Operation<T> : Operation
 	public T? Result { get; protected set; }
 
 	/// <summary>
-	/// Sets <see cref="Operation.IsSucceed"/> to <c>true</c> and sets result data.
+	/// Sets <see cref="OperationContext.IsSucceed"/> to <c>true</c> and sets result data.
 	/// </summary>
 	/// <param name="data">Resulting data.</param>
-	/// <returns>Current <see cref="Operation{T}"/>, so that additional calls can be chained.</returns>
-	public virtual Operation<T> SetResult(T data)
+	/// <returns>Current <see cref="OperationContext{T}"/>, so that additional calls can be chained.</returns>
+	public virtual OperationContext<T> SetResult(T data)
 	{
 		IsSucceed = true;
 		Result = data;
@@ -31,44 +31,44 @@ public class Operation<T> : Operation
 	}
 
 	/// <summary>
-	/// Sets <see cref="Operation.IsSucceed"/> to <c>false</c> and sets/adds error.
+	/// Sets <see cref="OperationContext.IsSucceed"/> to <c>false</c> and sets/adds error.
 	/// </summary>
 	/// <param name="errorObj">Error.</param>
-	/// <returns>Current <see cref="Operation{T}"/>, so that additional calls can be chained.</returns>
-	public override Operation<T> SetError(Exception errorObj)
+	/// <returns>Current <see cref="OperationContext{T}"/>, so that additional calls can be chained.</returns>
+	public override OperationContext<T> SetError(Exception errorObj)
 	{
 		_ = base.SetError(errorObj);
 		return this;
 	}
 
 	/// <summary>
-	/// Sets <see cref="Operation.IsSucceed"/> to <c>false</c> and sets/adds error.
+	/// Sets <see cref="OperationContext.IsSucceed"/> to <c>false</c> and sets/adds error.
 	/// </summary>
 	/// <param name="errorText">Error text.</param>
-	/// <returns>Current <see cref="Operation{T}"/>, so that additional calls can be chained.</returns>
-	public override Operation<T> SetError(string? errorText)
+	/// <returns>Current <see cref="OperationContext{T}"/>, so that additional calls can be chained.</returns>
+	public override OperationContext<T> SetError(string? errorText)
 	{
 		_ = base.SetError(errorText);
 		return this;
 	}
 
 	/// <summary>
-	/// Sets <see cref="Operation.IsSucceed"/> to <c>false</c> and sets/adds errors.
+	/// Sets <see cref="OperationContext.IsSucceed"/> to <c>false</c> and sets/adds errors.
 	/// </summary>
 	/// <param name="errors">Errors text list.</param>
-	/// <returns>Current <see cref="Operation{T}"/>, so that additional calls can be chained.</returns>
-	public override Operation<T> SetErrors(IEnumerable<string>? errors)
+	/// <returns>Current <see cref="OperationContext{T}"/>, so that additional calls can be chained.</returns>
+	public override OperationContext<T> SetErrors(IEnumerable<string>? errors)
 	{
 		_ = base.SetErrors(errors);
 		return this;
 	}
 
 	/// <summary>
-	/// Sets <see cref="Operation.IsSucceed"/> to <c>false</c> and sets/adds errors.
+	/// Sets <see cref="OperationContext.IsSucceed"/> to <c>false</c> and sets/adds errors.
 	/// </summary>
 	/// <param name="errors">Errors text list.</param>
-	/// <returns>Current <see cref="Operation{T}"/>, so that additional calls can be chained.</returns>
-	public override Operation<T> SetErrors(params string?[]? errors)
+	/// <returns>Current <see cref="OperationContext{T}"/>, so that additional calls can be chained.</returns>
+	public override OperationContext<T> SetErrors(params string?[]? errors)
 	{
 		_ = base.SetErrors(errors);
 		return this;

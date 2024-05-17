@@ -1,6 +1,6 @@
 using System.Diagnostics.CodeAnalysis;
 
-namespace Auriga.Toolkit.Runtime.Abstractions;
+namespace Auriga.Toolkit.Runtime;
 
 /// <summary>
 /// Well known Environment variable names.

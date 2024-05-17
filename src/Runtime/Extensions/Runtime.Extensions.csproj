@@ -1,4 +1,15 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
+	<!-- Devtime related properties -->
+	<PropertyGroup>
+		<ExactProductName>$(RootProductNamespace).$(MsBuildProjectName)</ExactProductName>
+		<RootNamespace>$(RootProductNamespace).Runtime</RootNamespace>
+	</PropertyGroup>
+	<!-- Nuget package related properties -->
+	<PropertyGroup>
+		<AssemblyName>$(ExactProductName)</AssemblyName>
+		<PackageId>$(ExactProductName)</PackageId>
+	</PropertyGroup>
+
 	<ItemGroup>
 		<PackageReference Include="InterpolatedStringFormatter" Version="1.0.1"/>
 	</ItemGroup>
