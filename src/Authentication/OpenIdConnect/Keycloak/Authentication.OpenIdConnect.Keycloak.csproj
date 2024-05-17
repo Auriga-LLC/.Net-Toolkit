@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+	<!-- Devtime related properties -->
+	<PropertyGroup>
+		<ExactProductName>$(RootProductNamespace).$(MsBuildProjectName)</ExactProductName>
+		<RootNamespace>$(RootProductNamespace).Authentication.OpenIdConnect</RootNamespace>
+	</PropertyGroup>
+	<!-- Nuget package related properties -->
+	<PropertyGroup>
+		<AssemblyName>$(ExactProductName)</AssemblyName>
+		<PackageId>$(ExactProductName)</PackageId>
+	</PropertyGroup>
+
+	<ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="$(DotNetFrameworkPackagesVersion)" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Http\Abstractions\Http.Abstractions.csproj" />
+    <ProjectReference Include="..\..\..\Plugins\Configuration\Abstractions\Plugins.Configuration.Abstractions.csproj" />
+    <ProjectReference Include="..\..\Abstractions\Authentication.Abstractions.csproj" />
+    <ProjectReference Include="..\Abstractions\Authentication.OpenIdConnect.Abstractions.csproj" />
+    <ProjectReference Include="..\..\..\Clients\Http\Clients\Clients.Http.csproj" />
+  </ItemGroup>
+</Project>

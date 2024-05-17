@@ -1,0 +1,29 @@
+<Project Sdk="Microsoft.NET.Sdk">
+	<!-- Devtime related properties -->
+	<PropertyGroup>
+		<ExactProductName>$(RootProductNamespace).$(MsBuildProjectName)</ExactProductName>
+		<RootNamespace>$(RootProductNamespace).AspNetCore.Authentication</RootNamespace>
+	</PropertyGroup>
+	<!-- Nuget package related properties -->
+	<PropertyGroup>
+		<AssemblyName>$(ExactProductName)</AssemblyName>
+		<PackageId>$(ExactProductName)</PackageId>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<FrameworkReference Include="Microsoft.AspNetCore.App" />
+	</ItemGroup>
+
+	<ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Primitives" Version="$(DotNetFrameworkPackagesVersion)" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+
+	<ItemGroup>
+    <ProjectReference Include="..\..\..\Configuration\Abstractions\Configuration.Abstractions.csproj" />
+    <ProjectReference Include="..\..\..\Http\Abstractions\Http.Abstractions.csproj" />
+    <ProjectReference Include="..\..\..\Clients\Http\Abstractions\Clients.Http.Abstractions.csproj" />
+    <ProjectReference Include="..\..\..\Logging\Abstractions\Logging.Abstractions.csproj" />
+    <ProjectReference Include="..\..\..\Runtime\Extensions\Runtime.Extensions.csproj" />
+  </ItemGroup>
+</Project>
