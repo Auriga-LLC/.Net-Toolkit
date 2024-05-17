@@ -10,7 +10,7 @@ on:
 #    branches: [ "main" ]
 
 env:
-  NUGET_FEED: https://api.nuget.org/v3/index.json
+  NUGET_FEED: ${{ vars.NUGET_FEED }}
   NUGET_KEY: ${{ secrets.NUGET_KEY }}
 
 jobs:
