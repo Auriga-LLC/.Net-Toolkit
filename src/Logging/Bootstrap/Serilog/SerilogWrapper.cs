@@ -2,10 +2,10 @@ using Microsoft.Extensions.Logging;
 using Serilog.Core;
 
 using MicrosoftLogger = Microsoft.Extensions.Logging.ILogger;
-using SerilogLogger = Serilog.ILogger;
 using SerilogProvider = Serilog.Log;
+using SerilogLogger = Serilog.ILogger;
 
-namespace Auriga.Toolkit.Logging.Serilog;
+namespace Auriga.Toolkit.Logging;
 
 /// <summary>
 /// Serilog logger service wrapper.

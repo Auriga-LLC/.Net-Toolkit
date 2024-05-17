@@ -1,4 +1,5 @@
 using System.Diagnostics.CodeAnalysis;
+using Auriga.Toolkit.Configuration;
 
 namespace Auriga.Toolkit.AspNetCore.CORS;
 
@@ -24,7 +25,7 @@ namespace Auriga.Toolkit.AspNetCore.CORS;
 /// </code>
 /// </example>
 [ExcludeFromCodeCoverage]
-public sealed class CorsFeatureOptions : BasicPolicyModel
+public sealed class CorsFeatureOptions : PolicyOptions
 {
 	/// <summary>
 	/// Section name in <c>appsettings.json</c> file.

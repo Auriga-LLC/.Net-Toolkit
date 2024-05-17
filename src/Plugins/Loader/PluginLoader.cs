@@ -1,9 +1,8 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Reflection;
 using System.Text.RegularExpressions;
-using Auriga.Toolkit.Runtime.Extensions;
 using Microsoft.Extensions.Logging;
-
+using Auriga.Toolkit.Runtime;
 using PluginAssemblyLoader = McMaster.NETCore.Plugins.PluginLoader;
 
 namespace Auriga.Toolkit.Plugins;
@@ -75,7 +74,10 @@ public static class PluginLoader
 	/// Cleanup plugins cache.
 	/// </summary>
 	public static void Cleanup()
-		=> s_pluginsCache.Clear();
+	{
+		s_pluginsCache.Clear();
+		BootstrapLogger.Cleanup();
+	}
 
 	internal static Assembly LoadAssembly(string assemblyPath)
 	{
@@ -113,7 +115,6 @@ public static class PluginLoader
 		catch (Exception ex)
 		{
 			s_logger.LogPluginActivationFailed(pluginType.Name, ex);
-			throw;
 		}
 	}
 

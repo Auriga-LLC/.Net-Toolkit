@@ -1,0 +1,33 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<!-- Devtime related properties -->
+	<PropertyGroup>
+		<ExactProductName>$(RootProductNamespace).$(MsBuildProjectName)</ExactProductName>
+		<RootNamespace>$(RootProductNamespace).Logging</RootNamespace>
+	</PropertyGroup>
+	<!-- Nuget package related properties -->
+	<PropertyGroup>
+		<AssemblyName>$(ExactProductName)</AssemblyName>
+		<PackageId>$(ExactProductName)</PackageId>
+	</PropertyGroup>
+	
+	<ItemGroup>
+		<PackageReference Include="Serilog.Formatting.Compact" Version="2.0.0"/>
+		<PackageReference Include="Serilog.Exceptions" Version="5.4.0"/>
+		<PackageReference Include="Serilog.Expressions" Version="4.0.0"/>
+		<PackageReference Include="Serilog.Extensions.Hosting" Version="8.0.0"/>
+		<PackageReference Include="Serilog.Settings.Configuration" Version="8.0.0"/>
+		<PackageReference Include="Serilog.Sinks.Async" Version="1.5.0"/>
+		<PackageReference Include="Serilog.Sinks.Console" Version="5.0.1"/>
+		<PackageReference Include="Serilog.AspNetCore" Version="8.0.1"/>
+		<PackageReference Include="Serilog.Enrichers.CorrelationId" Version="3.0.1"/>
+	</ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\..\..\Configuration\Abstractions\Configuration.Abstractions.csproj"/>
+		<ProjectReference Include="..\..\..\Http\Abstractions\Http.Abstractions.csproj"/>
+		<ProjectReference Include="..\..\..\Plugins\AspNetCore\Abstractions\Plugins.AspNetCore.Abstractions.csproj"/>
+		<ProjectReference Include="..\..\..\Plugins\Configuration\Abstractions\Plugins.Configuration.Abstractions.csproj"/>
+		<ProjectReference Include="..\..\..\Plugins\DependencyInjection\Abstractions\Plugins.DependencyInjection.Abstractions.csproj"/>
+		<ProjectReference Include="..\..\..\Plugins\Hosting\Abstractions\Plugins.Hosting.Abstractions.csproj"/>
+		<ProjectReference Include="..\Abstractions\Logging.AspNetCore.Abstractions.csproj"/>
+	</ItemGroup>
+</Project>

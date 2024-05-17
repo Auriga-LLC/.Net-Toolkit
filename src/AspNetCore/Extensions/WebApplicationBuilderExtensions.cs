@@ -1,4 +1,4 @@
-using Auriga.Toolkit.Plugins;
+﻿using Auriga.Toolkit.Plugins;
 using Microsoft.AspNetCore.Builder;
 
 namespace Auriga.Toolkit.AspNetCore.Extensions;

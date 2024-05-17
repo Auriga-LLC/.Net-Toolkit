@@ -1,13 +1,12 @@
 using Microsoft.Extensions.Logging;
 using Serilog.Events;
 
-namespace Auriga.Toolkit.Logging.Serilog;
+namespace Auriga.Toolkit.Logging;
 
 internal static class LogLevelMapper
 {
 	internal static LogEventLevel Map(LogLevel logLevel)
-	{
-		return logLevel switch
+		=> logLevel switch
 		{
 			LogLevel.Trace => LogEventLevel.Verbose,
 			LogLevel.Debug => LogEventLevel.Debug,
@@ -17,5 +16,4 @@ internal static class LogLevelMapper
 			LogLevel.Critical => LogEventLevel.Fatal,
 			_ => throw new ArgumentOutOfRangeException(nameof(logLevel), logLevel, null),
 		};
-	}
 }

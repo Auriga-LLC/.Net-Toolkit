@@ -1,7 +1,8 @@
 using System.Reflection;
-using Auriga.Toolkit.Configuration.Abstractions;
-using Auriga.Toolkit.Runtime.Extensions;
 using Microsoft.Extensions.Logging;
+using Auriga.Toolkit.Configuration;
+using Auriga.Toolkit.Logging;
+using Auriga.Toolkit.Runtime;
 
 namespace Auriga.Toolkit.Plugins;
 
@@ -9,9 +10,9 @@ namespace Auriga.Toolkit.Plugins;
 /// Bootstrap logger helper class.
 /// </summary>
 /// <remarks>Finds and creates logger service before application has started.</remarks>
-public static class BootstrapLogger
+internal static class BootstrapLogger
 {
-	private static Func<string, ILogger>? LoggerFactoryFunc { get; set; }
+	private static IBootstrapLoggerPlugin? s_loggerPlugin;
 
 	/// <summary>
 	/// Gets logger service instance.
@@ -20,36 +21,36 @@ public static class BootstrapLogger
 	/// <returns>The <see cref="ILogger"/> for log writing.</returns>
 	public static ILogger GetLoggerInstance(string categoryName)
 	{
-		if (LoggerFactoryFunc != null)
+		if (s_loggerPlugin != null)
 		{
-			return LoggerFactoryFunc(categoryName);
+			return s_loggerPlugin.GetBootstrapLogger(categoryName);
 		}
 
 		foreach (string assemblyPath in PluginLoader.GetPluginsFileList(PluginLoader.DefaultPluginFileMask, AppContext.BaseDirectory))
 		{
-			try
+			Assembly pluginAssembly = PluginLoader.LoadAssembly(assemblyPath);
+			Type? pluginType = pluginAssembly.GetImplementationTypes<IBootstrapLoggerPlugin>().FirstOrDefault();
+			if (pluginType == null)
 			{
-				Assembly pluginAssembly = PluginLoader.LoadAssembly(assemblyPath);
-				Type? pluginType = pluginAssembly.GetImplementationTypes<IBootstrapLoggerPlugin>().FirstOrDefault();
-				if (pluginType == null)
-				{
-					continue;
-				}
-
-				if (Activator.CreateInstanceFrom(assemblyPath, pluginType.FullName!)?.Unwrap() is not IBootstrapLoggerPlugin instance)
-				{
-					continue;
-				}
-
-				LoggerFactoryFunc = instance.GetBootstrapLogger(ConfigurationHelper.BootstrapConfiguration());
-				break;
+				continue;
 			}
-			catch (ReflectionTypeLoadException)
+
+			if (Activator.CreateInstanceFrom(assemblyPath, pluginType.FullName!)?.Unwrap() is not IBootstrapLoggerPlugin instance)
 			{
-				throw;
+				continue;
 			}
+
+			s_loggerPlugin = instance;
+			s_loggerPlugin.Init(ConfigurationHelper.BootstrapConfiguration());
+			break;
 		}
 
-		return LoggerFactoryFunc!(categoryName);
+		return s_loggerPlugin!.GetBootstrapLogger(categoryName);
 	}
+
+	/// <summary>
+	/// Cleanup loggers cache.
+	/// </summary>
+	public static void Cleanup()
+		=> s_loggerPlugin!.Dispose();
 }

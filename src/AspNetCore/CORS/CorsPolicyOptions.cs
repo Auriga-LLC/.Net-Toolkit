@@ -9,12 +9,12 @@ public sealed class CorsPolicyOptions
 	/// Gets is CORS policy default.
 	/// </summary>
 	public bool IsDefault { get; init; }
-
+	
 	/// <summary>
 	/// Gets is allowed for credentials to be sent over CORS requests.
 	/// </summary>
 	public bool AllowCredentials { get; init; }
-
+	
 	/// <summary>
 	/// Gets list of allowed origins.
 	/// </summary>

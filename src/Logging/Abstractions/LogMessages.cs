@@ -1,6 +1,6 @@
 using System.Diagnostics.CodeAnalysis;
 
-namespace Auriga.Toolkit.Logging.Abstractions;
+namespace Auriga.Toolkit.Logging;
 
 /// <summary>
 /// Log messages.

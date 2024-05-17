@@ -1,11 +1,11 @@
-using System.Collections.Concurrent;
-using Auriga.Toolkit.Plugins;
+﻿using System.Collections.Concurrent;
 using Microsoft.Extensions.Configuration;
 using Serilog;
 using Serilog.Exceptions;
+
 using MicrosoftLogger = Microsoft.Extensions.Logging.ILogger;
 
-namespace Auriga.Toolkit.Logging.Serilog;
+namespace Auriga.Toolkit.Logging;
 
 /// <summary>
 /// Serilog bootstrap logger setup.
