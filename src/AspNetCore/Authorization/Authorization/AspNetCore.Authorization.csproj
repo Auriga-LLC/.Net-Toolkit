@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+	<!-- Devtime related properties -->
+	<PropertyGroup>
+		<ExactProductName>$(RootProductNamespace).$(MsBuildProjectName)</ExactProductName>
+		<RootNamespace>$(RootProductNamespace).AspNetCore.Authorization</RootNamespace>
+	</PropertyGroup>
+	<!-- Nuget package related properties -->
+	<PropertyGroup>
+		<AssemblyName>$(ExactProductName)</AssemblyName>
+		<PackageId>$(ExactProductName)</PackageId>
+	</PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Plugins\AspNetCore\Abstractions\Plugins.AspNetCore.Abstractions.csproj" />
+    <ProjectReference Include="..\..\..\Plugins\Configuration\Abstractions\Plugins.Configuration.Abstractions.csproj" />
+    <ProjectReference Include="..\..\..\Plugins\DependencyInjection\Abstractions\Plugins.DependencyInjection.Abstractions.csproj" />
+    <ProjectReference Include="..\Abstractions\AspNetCore.Authorization.Abstractions.csproj" />
+    <ProjectReference Include="..\..\..\Authorization\UserManagedAccess\Abstractions\Authorization.UserManagedAccess.Abstractions.csproj" />
+  </ItemGroup>
+</Project>
