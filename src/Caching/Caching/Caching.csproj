@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+	<!-- Devtime related properties -->
+	<PropertyGroup>
+		<ExactProductName>$(RootProductNamespace).$(MsBuildProjectName)</ExactProductName>
+		<RootNamespace>$(RootProductNamespace).Caching</RootNamespace>
+	</PropertyGroup>
+	<!-- Nuget package related properties -->
+	<PropertyGroup>
+		<AssemblyName>$(ExactProductName)</AssemblyName>
+		<PackageId>$(ExactProductName)</PackageId>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\Configuration\Abstractions\Configuration.Abstractions.csproj" />
+		<ProjectReference Include="..\..\Logging\Abstractions\Logging.Abstractions.csproj" />
+		<ProjectReference Include="..\..\Plugins\Configuration\Abstractions\Plugins.Configuration.Abstractions.csproj" />
+		<ProjectReference Include="..\..\Plugins\DependencyInjection\Abstractions\Plugins.DependencyInjection.Abstractions.csproj" />
+		<ProjectReference Include="..\Abstractions\Caching.Abstractions.csproj" />
+		<ProjectReference Include="..\Redis\Caching.Redis.csproj" />
+		<ProjectReference Include="..\..\Clients\Abstractions\Clients.Abstractions.csproj" />
+		<ProjectReference Include="..\Memory\Caching.Memory.csproj" />
+	</ItemGroup>
+</Project>

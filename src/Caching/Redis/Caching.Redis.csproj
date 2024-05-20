@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<!-- Devtime related properties -->
+	<PropertyGroup>
+		<ExactProductName>$(RootProductNamespace).$(MsBuildProjectName)</ExactProductName>
+		<RootNamespace>$(RootProductNamespace).Caching</RootNamespace>
+	</PropertyGroup>
+	<!-- Nuget package related properties -->
+	<PropertyGroup>
+		<AssemblyName>$(ExactProductName)</AssemblyName>
+		<PackageId>$(ExactProductName)</PackageId>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\Security\Extensions\Security.Extensions.csproj"/>
+		<ProjectReference Include="..\..\Configuration\Abstractions\Configuration.Abstractions.csproj" />
+		<ProjectReference Include="..\..\Logging\Abstractions\Logging.Abstractions.csproj" />
+		<ProjectReference Include="..\Abstractions\Caching.Abstractions.csproj" />
+		<ProjectReference Include="..\..\Clients\Abstractions\Clients.Abstractions.csproj" />
+	</ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+		<PackageReference Include="StackExchange.Redis" Version="2.7.33" />
+	</ItemGroup>
+</Project>
