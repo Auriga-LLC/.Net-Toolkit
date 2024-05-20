@@ -30,8 +30,8 @@ internal sealed class HttpTraceLoggingPlugin :
 	{
 		ArgumentNullException.ThrowIfNull(configuration);
 
-		HttpTraceOptions? featureConfiguration = configuration.GetConfigurationModel<HttpTraceOptions>(HttpTraceOptions.SectionName);
-		Enabled = featureConfiguration is { TraceHttp: true };
+		HttpTraceOptions? featureConfiguration = configuration.GetConfiguration<HttpTraceOptions>(HttpTraceOptions.SectionName);
+		Enabled = featureConfiguration?.TraceHttp == true;
 
 		return configuration;
 	}
@@ -55,6 +55,8 @@ internal sealed class HttpTraceLoggingPlugin :
 
 				logging.MediaTypeOptions.AddText(MediaTypeNames.Application.Json);
 				logging.MediaTypeOptions.AddText(MediaTypeNames.Multipart.FormData);
+
+				logging.CombineLogs = true;
 			});
 	}
 

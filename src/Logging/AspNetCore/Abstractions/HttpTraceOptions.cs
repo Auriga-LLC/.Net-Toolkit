@@ -1,4 +1,5 @@
 using System.Diagnostics.CodeAnalysis;
+using Auriga.Toolkit.Configuration;
 
 namespace Auriga.Toolkit.Logging;
 
@@ -12,10 +13,11 @@ namespace Auriga.Toolkit.Logging;
 /// <example>
 /// Usage in <c>appsettings.json</c>:
 /// <code>
-/// "AppSettings": {
-///   "DiagnosticPolicy": (
-///     "Enabled": true,
-///     "TraceHttp": true
+/// {
+///   "Http": {
+///     "DiagnosticPolicy": (
+///       "TraceHttp": true
+///     }
 ///   }
 /// }
 /// </code>
@@ -26,7 +28,7 @@ public sealed class HttpTraceOptions
 	/// <summary>
 	/// Section name in <c>appsettings.json</c> file.
 	/// </summary>
-	public const string SectionName = $"{"ApplicationApiConfiguration.SectionName"}:DiagnosticPolicy";
+	public const string SectionName = $"{ConfigurationSectionNames.HttpApi}:DiagnosticPolicy";
 
 	/// <summary>
 	/// Gets is all HTTP requests/responses should be traced.

@@ -26,7 +26,7 @@ internal sealed class SerilogHttpTraceLoggingPlugin :
 	{
 		ArgumentNullException.ThrowIfNull(configuration);
 
-		HttpTraceOptions? featureConfiguration = configuration.GetConfigurationModel<HttpTraceOptions>(HttpTraceOptions.SectionName);
+		HttpTraceOptions? featureConfiguration = configuration.GetConfiguration<HttpTraceOptions>(HttpTraceOptions.SectionName);
 		Enabled = featureConfiguration is { TraceHttp: true };
 
 		return configuration;

@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 	<!-- Devtime related properties -->
 	<PropertyGroup>
 		<ExactProductName>$(RootProductNamespace).$(MsBuildProjectName)</ExactProductName>
@@ -12,5 +12,8 @@
 	
 	<ItemGroup>
 		<PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="$(DotNetFrameworkPackagesVersion)"/>
+	</ItemGroup>
+	<ItemGroup>
+	  <ProjectReference Include="..\..\..\Configuration\Abstractions\Configuration.Abstractions.csproj" />
 	</ItemGroup>
 </Project>
