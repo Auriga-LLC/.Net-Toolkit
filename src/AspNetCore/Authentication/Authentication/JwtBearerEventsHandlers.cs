@@ -1,10 +1,8 @@
 using System.IdentityModel.Tokens.Jwt;
-using System.Security.Claims;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.Net.Http.Headers;
-using Auriga.Toolkit.Audit.Abstractions;
 using Auriga.Toolkit.Authentication.OpenIdConnect;
 using Auriga.Toolkit.Runtime;
 
@@ -62,13 +60,6 @@ internal static class JwtBearerEventsHandlers
 			return Task.CompletedTask;
 		}
 
-		string? userName = jwtToken.Claims
-			.FirstOrDefault(x => string.Equals(x.Type, nameof(ClaimTypes.Upn), StringComparison.OrdinalIgnoreCase))?.Value;
-		ctx.HttpContext.RequestServices.GetService<IAuditService>()?
-			.AuditDebugMessage(
-				AuditEventType.TokenValidated,
-				$"Successfully authenticated users \"({userName}\" token");
-
 		return Task.CompletedTask;
 	}
 
@@ -106,14 +97,10 @@ internal static class JwtBearerEventsHandlers
 			case SecurityTokenExpiredException:
 			{
 				_ = ctx.Response.Headers.TryAdd(HeaderNames.AccessControlExposeHeaders, "WWW-Authenticate");
-				ctx.HttpContext.RequestServices.GetService<IAuditService>()?
-					.AuditWarningMessage(AuditEventType.TokenExpired, ctx.Exception.Message);
 			} break;
 
 			default:
 			{
-				ctx.HttpContext.RequestServices.GetService<IAuditService>()?
-					.AuditWarningMessage(AuditEventType.TokenValidationFailed, ctx.Exception.Message);
 			} break;
 		}
 

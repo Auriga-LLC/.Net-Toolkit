@@ -19,6 +19,7 @@
 		<ProjectReference Include="..\..\..\DistributedLock\Abstractions\DistributedLock.Abstractions.csproj"/>
 		<ProjectReference Include="..\..\..\Runtime\Extensions\Runtime.Extensions.csproj"/>
 		<ProjectReference Include="..\..\..\Security\Extensions\Security.Extensions.csproj"/>
+		<ProjectReference Include="..\..\..\Serialization\Json\Serialization.Json.csproj" />
 		<ProjectReference Include="..\Abstractions\Clients.Http.Abstractions.csproj"/>
 		<ProjectReference Include="..\Authentication\Clients.Http.Authentication.csproj"/>
 		<ProjectReference Include="..\Caching\Clients.Http.Caching.csproj"/>

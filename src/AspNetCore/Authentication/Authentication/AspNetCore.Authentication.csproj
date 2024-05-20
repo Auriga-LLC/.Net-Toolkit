@@ -17,7 +17,6 @@
 		<ProjectReference Include="..\..\..\Authentication\OpenIdConnect\Abstractions\Authentication.OpenIdConnect.Abstractions.csproj" />
 		<ProjectReference Include="..\..\..\Clients\Http\Authentication\Clients.Http.Authentication.csproj" />
 		<ProjectReference Include="..\..\..\Logging\AspNetCore\Abstractions\Logging.AspNetCore.Abstractions.csproj"/>
-		<ProjectReference Include="..\..\..\Logging\Audit\Abstractions\Audit.Abstractions.csproj"/>
 		<ProjectReference Include="..\..\..\Plugins\AspNetCore\Abstractions\Plugins.AspNetCore.Abstractions.csproj" />
 	  <ProjectReference Include="..\..\..\Plugins\Configuration\Abstractions\Plugins.Configuration.Abstractions.csproj" />
 	  <ProjectReference Include="..\..\..\Plugins\DependencyInjection\Abstractions\Plugins.DependencyInjection.Abstractions.csproj" />

@@ -10,7 +10,7 @@ namespace Auriga.Toolkit.Clients.Http;
 /// <summary>
 /// Extension methods for setting up RemoteServices in an <see cref="IServiceCollection"/>.
 /// </summary>
-public static class RemoteServicesSetupExtensions
+public static class HttpClientBuilderExtensions
 {
 	/// <summary>
 	/// Setup specific service client in the specified <see cref="IServiceCollection"/>.

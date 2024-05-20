@@ -21,7 +21,6 @@
 		<ProjectReference Include="..\..\..\Configuration\Abstractions\Configuration.Abstractions.csproj" />
     <ProjectReference Include="..\..\..\Runtime\Abstractions\Runtime.Abstractions.csproj" />
     <ProjectReference Include="..\..\..\Runtime\Extensions\Runtime.Extensions.csproj" />
-    <ProjectReference Include="..\..\..\Serialization\Json\Serialization.Json.csproj" />
     <ProjectReference Include="..\..\..\Http\Abstractions\Http.Abstractions.csproj" />
     <ProjectReference Include="..\..\Abstractions\Clients.Abstractions.csproj" />
   </ItemGroup>

@@ -15,6 +15,5 @@
     <ProjectReference Include="..\..\..\Plugins\Configuration\Abstractions\Plugins.Configuration.Abstractions.csproj" />
     <ProjectReference Include="..\..\..\Plugins\DependencyInjection\Abstractions\Plugins.DependencyInjection.Abstractions.csproj" />
     <ProjectReference Include="..\Abstractions\AspNetCore.Authorization.Abstractions.csproj" />
-    <ProjectReference Include="..\..\..\Authorization\UserManagedAccess\Abstractions\Authorization.UserManagedAccess.Abstractions.csproj" />
   </ItemGroup>
 </Project>
