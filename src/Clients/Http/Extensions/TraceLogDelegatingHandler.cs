@@ -1,6 +1,6 @@
 using Microsoft.Extensions.Logging;
 
-namespace Toolkit.Extensions.Clients.Http;
+namespace Auriga.Toolkit.Clients.Http;
 
 /// <summary>
 /// Requests logging handler.
@@ -10,7 +10,7 @@ namespace Toolkit.Extensions.Clients.Http;
 /// <param name="serviceConfiguration">Service client configuration.</param>
 internal sealed class TraceLogDelegatingHandler(
 	ILogger logger,
-	ClientConnectionOptions serviceConfiguration)
+	HttpConnectionOptions serviceConfiguration)
 	: DelegatingHandler
 {
 	/// <inheritdoc/>

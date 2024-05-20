@@ -1,10 +1,10 @@
 ///
 /*using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
-using Toolkit.Extensions.AspNetCore.Authentication.Extensions;
-using Toolkit.Extensions.Http;
+using Auriga.Toolkit.AspNetCore.Authentication.Extensions;
+using Auriga.Toolkit.Http;
 
-namespace Toolkit.Extensions.Clients.Http;
+namespace Auriga.Toolkit.Clients.Http;
 
 /// <summary>
 /// Requests userId include handler.

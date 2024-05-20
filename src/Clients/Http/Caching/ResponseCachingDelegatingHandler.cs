@@ -1,11 +1,16 @@
 using System.Net;
 using Microsoft.Extensions.Logging;
-using Toolkit.Extensions.Caching.Abstractions.Enums;
-using Toolkit.Extensions.Caching.Abstractions.Services;
+using Auriga.Toolkit.Caching;
 
-namespace Toolkit.Extensions.Clients.Http;
+namespace Auriga.Toolkit.Clients.Http;
 
-public sealed class ResponseCachingDelegatingHandler(
+/// <summary>
+/// 
+/// </summary>
+/// <param name="logger"></param>
+/// <param name="cacheService"></param>
+/// <param name="cacheLifetimeDeterminationService"></param>
+internal sealed class ResponseCachingDelegatingHandler(
 	ILogger<ResponseCachingDelegatingHandler> logger,
 	IRecordCacheService cacheService,
 	IResponseCacheLifetimeProvider cacheLifetimeDeterminationService) : DelegatingHandler

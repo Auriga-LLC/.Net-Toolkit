@@ -1,6 +1,6 @@
-using Toolkit.Extensions.Configuration;
+using Auriga.Toolkit.Configuration;
 
-namespace Toolkit.Extensions.Clients.Http;
+namespace Auriga.Toolkit.Clients.Http;
 
 /// <summary>
 /// Diagnostic and tracing policy model.

@@ -1,4 +1,4 @@
-namespace Toolkit.Extensions.Clients.Http;
+namespace Auriga.Toolkit.Clients.Http;
 
 public interface IOfflineTokenExchangerService
 {

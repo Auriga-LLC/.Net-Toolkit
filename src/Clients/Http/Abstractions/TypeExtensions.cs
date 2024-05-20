@@ -1,15 +1,16 @@
 using System.Globalization;
 using System.Net.Http.Headers;
-using Toolkit.Extensions.Runtime;
+using System.Text;
+using Auriga.Toolkit.Runtime;
 
-namespace Toolkit.Extensions.Clients.Http;
+namespace Auriga.Toolkit.Clients.Http;
 
 /// <summary>
 /// Assembly helper methods class.
 /// </summary>
 public static class TypeExtensions
 {
-	private const string UserAgentHeaderTemplate = "{0}/{1}";	
+	private static readonly CompositeFormat s_userAgentHeaderTemplate = CompositeFormat.Parse("{0}/{1}");
 	
 	/// <summary>
 	/// Builds product version in UserAgent manner.
@@ -23,6 +24,6 @@ public static class TypeExtensions
 
 		string version = productType.Assembly.GetInformationalVersion();
 		return ProductInfoHeaderValue.Parse(
-			string.Format(CultureInfo.InvariantCulture, UserAgentHeaderTemplate, productName ?? productType.FullName, version));
+			string.Format(CultureInfo.InvariantCulture, s_userAgentHeaderTemplate, productName ?? productType.FullName, version));
 	}
 }

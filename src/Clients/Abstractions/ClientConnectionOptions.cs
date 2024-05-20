@@ -1,7 +1,7 @@
 using System.Diagnostics.CodeAnalysis;
-using Toolkit.Extensions.Configuration;
+using Auriga.Toolkit.Configuration;
 
-namespace Toolkit.Extensions.Clients.Http;
+namespace Auriga.Toolkit.Clients.Http;
 
 /// <summary>
 /// Base configuration model for remote service connection.
@@ -13,13 +13,13 @@ public abstract class ClientConnectionOptions
 	/// <summary>
 	/// Section name in <c>appsettings.json</c> file.
 	/// </summary>
-	public const string SectionName = $"{ConfigurationSectionName.BaseSection}:Integration";
+	public const string SectionName = "Integration";
 
 	/// <summary>
 	/// Gets service endpoint URL.
 	/// </summary>
 	/// <value><c>null</c> by default.</value>
-	public Uri? Endpoint { get; init; }
+	public required Uri Endpoint { get; init; }
 
 	/// <summary>
 	/// Gets operations timeout.
@@ -37,11 +37,6 @@ public abstract class ClientConnectionOptions
 	/// Gets connection <see cref="ClientAuthenticationOptions">authentication policy</see>.
 	/// </summary>
 	public ClientAuthenticationOptions? Authentication { get; init; }
-
-	/// <summary>
-	/// Gets configured <see cref="ResponseCachingOptions"> requests caching policy</see>.
-	/// </summary>
-	public ResponseCachingOptions? ResponseCaching { get; init; } = new();
 
 	/// <summary>
 	/// Gets configured <see cref="RequestTracingOptions"> requests diagnostic policy</see>.

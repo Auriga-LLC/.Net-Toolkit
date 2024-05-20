@@ -1,8 +1,8 @@
 using Microsoft.Extensions.DependencyInjection;
-using Toolkit.Extensions.Http;
-using Toolkit.Extensions.Runtime;
+using Auriga.Toolkit.Http;
+using Auriga.Toolkit.Runtime;
 
-namespace Toolkit.Extensions.Clients.Http;
+namespace Auriga.Toolkit.Clients.Http;
 
 /// <summary>
 /// Http client extension methods
@@ -21,7 +21,7 @@ public static class HttpClientSetupExtensions
 	/// <returns>The <see cref="IHttpClientBuilder"/> so that additional calls can be chained.</returns>
 	public static IHttpClientBuilder? TryAddHttpClient<TClient, TImplementation>(
 		this IServiceCollection services,
-		ClientConnectionOptions connectionConfiguration,
+		HttpConnectionOptions connectionConfiguration,
 		string? serviceClientName = null)
 		where TClient : class
 		where TImplementation : class, TClient

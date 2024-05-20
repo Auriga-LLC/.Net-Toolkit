@@ -1,6 +1,6 @@
-using Toolkit.Extensions.Runtime;
+using Auriga.Toolkit.Runtime;
 
-namespace Toolkit.Extensions.Clients.Http;
+namespace Auriga.Toolkit.Clients.Http;
 
 /// <summary>
 /// Response parser contract.

@@ -1,7 +1,7 @@
 using System.Diagnostics.CodeAnalysis;
-using Toolkit.Extensions.Configuration;
+using Auriga.Toolkit.Configuration;
 
-namespace Toolkit.Extensions.Clients.Http;
+namespace Auriga.Toolkit.Clients.Http;
 
 /// <summary>
 /// "Log in to" remote service feature policy model.
@@ -10,22 +10,22 @@ namespace Toolkit.Extensions.Clients.Http;
 /// <example>
 /// Usage in <c>appsettings.json</c>:
 /// <code>
-/// "AppSettings": {
-/// 	"Integration": {
-///			"SomeRemoteService": {
-///				...
-///				"Authentication": {
-/// 				"UserId": "testUserId",
-/// 				"UserSecret": "testUserPassword"",
-/// 				"Mode": "UserPassword"
-/// 			}
-/// 		}
-/// 	}
+/// {
+///   "Integration": {
+///     "SomeRemoteService": {
+///        ...
+///       "Authentication": {
+///         "UserId": "testUserId",
+///         "UserSecret": "testUserPassword"",
+///         "Mode": "UserPassword"
+///       }
+///     }
+///   }
 /// }
 /// </code>
 /// </example>
 [ExcludeFromCodeCoverage]
-public sealed class ClientAuthenticationOptions : PolicyOptions
+public class ClientAuthenticationOptions : PolicyOptions
 {
 	/// <inheritdoc cref="PolicyOptions.Enabled"/>
 	public new bool Enabled => Type != ClientAuthenticationType.Anonymous;
@@ -47,9 +47,5 @@ public sealed class ClientAuthenticationOptions : PolicyOptions
 	/// Gets remote request authentication mode.
 	/// </summary>
 	/// <value><see cref="ClientAuthenticationType.Anonymous"/> by default.</value>
-	/// <remarks>
-	/// If <see cref="ClientAuthenticationType.Impersonation"/> mode selected,<br/>
-	/// <see cref="UserId"/> and <see cref="UserSecret"/> is ignored.
-	/// </remarks>
 	public ClientAuthenticationType Type { get; init; } = ClientAuthenticationType.Anonymous;
 }

@@ -1,7 +1,7 @@
 using Polly;
 using Polly.Extensions.Http;
 
-namespace Toolkit.Extensions.Clients.Http;
+namespace Auriga.Toolkit.Clients.Http;
 
 /// <summary>
 /// Retry policy extensions.
@@ -14,7 +14,7 @@ public static class RetryPolicyExtensions
 	/// <param name="config">Remote service connection configuration.</param>
 	/// <param name="applicationName">Application name.</param>
 	/// <returns>Built policy or 1-time fallback.</returns>
-	public static IAsyncPolicy<HttpResponseMessage> BuildRetryPolicy(this ClientConnectionOptions config, string applicationName)
+	public static IAsyncPolicy<HttpResponseMessage> BuildRetryPolicy(this HttpConnectionOptions config, string applicationName)
 	{
 		ArgumentNullException.ThrowIfNull(config);
 

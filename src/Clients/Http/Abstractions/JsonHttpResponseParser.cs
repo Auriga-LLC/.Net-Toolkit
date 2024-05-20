@@ -1,10 +1,10 @@
 using System.Net;
 using Microsoft.Extensions.Logging;
-using Toolkit.Extensions.Http;
-using Toolkit.Extensions.Runtime;
-using Toolkit.Extensions.Serialization.Json;
+using Auriga.Toolkit.Http;
+using Auriga.Toolkit.Runtime;
+using Auriga.Toolkit.Serialization.Json;
 
-namespace Toolkit.Extensions.Clients.Http;
+namespace Auriga.Toolkit.Clients.Http;
 
 /// <summary>
 /// Default Http response parser.

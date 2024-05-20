@@ -1,6 +1,6 @@
 using System.Net.Http.Headers;
 
-namespace Toolkit.Extensions.Clients.Http;
+namespace Auriga.Toolkit.Clients.Http;
 
 /// <summary>
 /// "Authentication data" provider for http clients contract.

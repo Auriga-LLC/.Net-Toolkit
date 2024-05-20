@@ -1,8 +1,8 @@
 using System.Net.Http.Headers;
-using Toolkit.Extensions.Authentication.Abstractions;
-using Toolkit.Extensions.Runtime;
+using Auriga.Toolkit.Authentication.Abstractions;
+using Auriga.Toolkit.Runtime;
 
-namespace Toolkit.Extensions.Clients.Http;
+namespace Auriga.Toolkit.Clients.Http;
 
 /// <summary>
 /// KeyCloak-specific identity provider.

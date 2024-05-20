@@ -1,9 +1,9 @@
 using Microsoft.Extensions.Logging;
-using Toolkit.Extensions.DistributedLock.Abstractions;
-using Toolkit.Extensions.DistributedLock.Abstractions.Extensions;
-using Toolkit.Extensions.Http;
+using Auriga.Toolkit.DistributedLock.Abstractions;
+using Auriga.Toolkit.DistributedLock.Abstractions.Extensions;
+using Auriga.Toolkit.Http;
 
-namespace Toolkit.Extensions.Clients.Http;
+namespace Auriga.Toolkit.Clients.Http;
 
 /// <summary>
 /// Request throttler based on user id.

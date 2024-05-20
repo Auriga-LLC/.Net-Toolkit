@@ -1,4 +1,4 @@
-namespace Toolkit.Extensions.Clients.Http;
+namespace Auriga.Toolkit.Clients.Http;
 
 /// <summary>
 /// "Log in" mode type for remote API requests.
@@ -6,19 +6,19 @@ namespace Toolkit.Extensions.Clients.Http;
 public enum ClientAuthenticationType
 {
 	/// <summary>
-	/// Requests will use user/password pair.
+	/// Requests will use plain user/password pair.
 	/// </summary>
 	UserPassword = 0,
 
 	/// <summary>
-	/// Requests will use offline token.
+	/// Requests will use certificate.
 	/// </summary>
-	OfflineToken = 1,
+	Certificate = 1,
 
 	/// <summary>
-	/// Requests will use current user credentials from Http context.
+	/// Requests will use token.
 	/// </summary>
-	Impersonation = 2,
+	Token = 2,
 
 	/// <summary>
 	/// Requests will be sent without authentication data.

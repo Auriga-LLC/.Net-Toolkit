@@ -1,7 +1,7 @@
 using System.Diagnostics.CodeAnalysis;
-using Toolkit.Extensions.Configuration;
+using Auriga.Toolkit.Configuration;
 
-namespace Toolkit.Extensions.Clients.Http;
+namespace Auriga.Toolkit.Clients.Http;
 
 /// <summary>
 /// "Connection Retry" feature policy model.
@@ -12,7 +12,7 @@ namespace Toolkit.Extensions.Clients.Http;
 /// <example>
 /// Usage in <c>appsettings.json</c>
 /// <code>
-/// "AppSettings": {
+/// {
 ///   "Integration": {
 ///     "DistributedLock": {
 ///       "Resilience": {

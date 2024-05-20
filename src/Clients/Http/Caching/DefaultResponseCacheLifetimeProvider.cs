@@ -1,9 +1,13 @@
 using Microsoft.Extensions.Options;
-using Toolkit.Extensions.Caching.Abstractions.Configuration;
+using Auriga.Toolkit.Caching;
 
-namespace Toolkit.Extensions.Clients.Http;
+namespace Auriga.Toolkit.Clients.Http;
 
-public class DefaultResponseCacheLifetimeProvider(IOptions<CacheStorageClientConfiguration> cacheConfigurationOptions)
+/// <summary>
+/// 
+/// </summary>
+/// <param name="cacheConfigurationOptions"></param>
+internal sealed class DefaultResponseCacheLifetimeProvider(IOptions<CacheStorageConnectionOptions> cacheConfigurationOptions)
 	: IResponseCacheLifetimeProvider
 {
 	/// <inheritdoc/>

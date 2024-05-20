@@ -1,7 +1,7 @@
 using System.Net;
 using Microsoft.Extensions.Logging;
 
-namespace Toolkit.Extensions.Clients.Http;
+namespace Auriga.Toolkit.Clients.Http;
 
 #pragma warning disable CS1591
 

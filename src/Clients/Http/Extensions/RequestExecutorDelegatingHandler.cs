@@ -1,8 +1,8 @@
 using Microsoft.Extensions.Logging;
-using Toolkit.Extensions.Configuration;
-using Toolkit.Extensions.Http;
+using Auriga.Toolkit.Configuration;
+using Auriga.Toolkit.Http;
 
-namespace Toolkit.Extensions.Clients.Http;
+namespace Auriga.Toolkit.Clients.Http;
 
 /// <summary>
 /// Requests userExecutor include handler.

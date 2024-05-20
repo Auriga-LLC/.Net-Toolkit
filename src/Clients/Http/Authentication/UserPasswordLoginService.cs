@@ -1,6 +1,6 @@
 using System.Net.Http.Headers;
 
-namespace Toolkit.Extensions.Clients.Http;
+namespace Auriga.Toolkit.Clients.Http;
 
 /// <summary>
 /// LogIn service for use with user/password pair.

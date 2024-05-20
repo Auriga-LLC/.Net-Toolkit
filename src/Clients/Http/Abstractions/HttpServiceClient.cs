@@ -1,7 +1,7 @@
 using Microsoft.Extensions.Logging;
-using Toolkit.Extensions.Runtime;
+using Auriga.Toolkit.Runtime;
 
-namespace Toolkit.Extensions.Clients.Http;
+namespace Auriga.Toolkit.Clients.Http;
 
 /// <summary>
 /// Generic remote service HTTP-client.

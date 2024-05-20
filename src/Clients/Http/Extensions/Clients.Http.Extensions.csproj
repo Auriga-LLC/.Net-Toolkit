@@ -16,10 +16,12 @@
 		<PackageReference Include="Microsoft.Extensions.Http" Version="$(DotNetFrameworkPackagesVersion)"/>
 	</ItemGroup>
 	<ItemGroup>
-		<ProjectReference Include="..\..\..\Caching\Abstractions\Caching.Abstractions.csproj"/>
 		<ProjectReference Include="..\..\..\DistributedLock\Abstractions\DistributedLock.Abstractions.csproj"/>
 		<ProjectReference Include="..\..\..\Runtime\Extensions\Runtime.Extensions.csproj"/>
-		<ProjectReference Include="..\Abstractions\Clients.Http.Abstractions.csproj"/>
 		<ProjectReference Include="..\..\..\Security\Extensions\Security.Extensions.csproj"/>
+		<ProjectReference Include="..\Abstractions\Clients.Http.Abstractions.csproj"/>
+		<ProjectReference Include="..\Authentication\Clients.Http.Authentication.csproj"/>
+		<ProjectReference Include="..\Caching\Clients.Http.Caching.csproj"/>
+		<ProjectReference Include="..\Resilience\Clients.Http.Resilience.csproj"/>
 	</ItemGroup>
 </Project>
