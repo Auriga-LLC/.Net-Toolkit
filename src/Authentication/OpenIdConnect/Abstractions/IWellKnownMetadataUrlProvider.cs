@@ -1,4 +1,4 @@
-namespace Toolkit.Extensions.Authentication.OpenIdConnect;
+namespace Auriga.Toolkit.Authentication.OpenIdConnect;
 
 /// <summary>
 /// Contract for ".well-known" metadata url provider.

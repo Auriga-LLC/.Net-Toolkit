@@ -1,6 +1,6 @@
-using Toolkit.Extensions.Runtime;
+using Auriga.Toolkit.Runtime;
 
-namespace Toolkit.Extensions.Authentication.OpenIdConnect;
+namespace Auriga.Toolkit.Authentication.OpenIdConnect;
 
 public interface IOpenIdConnectAuthenticationService
 {

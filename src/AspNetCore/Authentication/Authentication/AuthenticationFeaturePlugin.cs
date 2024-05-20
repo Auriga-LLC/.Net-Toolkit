@@ -33,27 +33,23 @@ internal sealed class AuthenticationFeaturePlugin :
 	{
 		ArgumentNullException.ThrowIfNull(configuration);
 
-		IConfigurationSection currentSection = configuration.GetSection(AuthenticationFeatureOptions.SectionName);
-		if (!currentSection.Exists())
-		{
-			Enabled = false;
-		}
-
+		_authPolicy = configuration.GetConfiguration<AuthenticationFeatureOptions>(AuthenticationFeatureOptions.SectionName);
+		Enabled = _authPolicy?.Enabled == true;
 		return configuration;
 	}
 
 	/// <inheritdoc/>
 	public IServiceCollection ConfigureServices(IServiceCollection services, IConfiguration configuration)
 	{
-		// Register config
-		_authPolicy = services.RegisterConfigurationIfExists<AuthenticationFeatureOptions>(configuration, AuthenticationFeatureOptions.SectionName);
-		Enabled = _authPolicy?.Enabled == true;
 		if (!Enabled)
 		{
 			return services;
 		}
 
-		_ = services.AddAuthentication(options =>
+		// Register config
+		_ = services
+			.ConfigureOptions<AuthenticationFeatureOptions>(configuration, AuthenticationFeatureOptions.SectionName)
+			.AddAuthentication(options =>
 			{
 				options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
 				options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -78,20 +74,20 @@ internal sealed class AuthenticationFeaturePlugin :
 			return app;
 		}
 
-		_ = app.UseAuthentication();
-		var cookiePolicy = new Microsoft.AspNetCore.Builder.CookiePolicyOptions
-		{
-			MinimumSameSitePolicy = _authPolicy?.CookiePolicy?.DisableSameSiteRestriction == true
-				? SameSiteMode.None
-				: SameSiteMode.Strict,
-			HttpOnly = HttpOnlyPolicy.Always,
-			Secure = _authPolicy?.Connection?.AllowInSecureCommunication == true
-				? CookieSecurePolicy.SameAsRequest
-				: CookieSecurePolicy.Always
-		};
-		_ = app.UseCookiePolicy(cookiePolicy);
+		_ = app
+			.UseAuthentication()
+		  .UseCookiePolicy(new()
+			{
+				MinimumSameSitePolicy = _authPolicy?.CookiePolicy?.DisableSameSiteRestriction == true
+					? SameSiteMode.None
+					: SameSiteMode.Strict,
+				HttpOnly = HttpOnlyPolicy.Always,
+				Secure = _authPolicy?.AuthorityConnection?.AllowInSecureCommunication == true
+					? CookieSecurePolicy.SameAsRequest
+					: CookieSecurePolicy.Always
+			});
 
-		return _authPolicy?.Connection?.AllowInSecureCommunication == true
+		return _authPolicy?.AuthorityConnection?.AllowInSecureCommunication == true
 			? app
 			: app.UseHttpsRedirection();
 	}

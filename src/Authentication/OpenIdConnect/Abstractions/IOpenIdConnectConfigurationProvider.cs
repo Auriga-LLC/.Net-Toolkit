@@ -1,6 +1,6 @@
 using Microsoft.IdentityModel.Protocols.OpenIdConnect;
 
-namespace Toolkit.Extensions.Authentication.OpenIdConnect;
+namespace Auriga.Toolkit.Authentication.OpenIdConnect;
 
 public interface IOpenIdConnectConfigurationProvider
 {

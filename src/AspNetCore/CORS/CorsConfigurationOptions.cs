@@ -14,7 +14,7 @@ namespace Auriga.Toolkit.AspNetCore.CORS;
 /// <example>
 /// Usage in `appsettings.json`:
 /// <code>
-/// "AppSettings": {
+/// {
 ///   "HTTP":
 ///     "CORS": {
 ///       "Enabled": false,
@@ -30,7 +30,7 @@ public sealed class CorsFeatureOptions : PolicyOptions
 	/// <summary>
 	/// Section name in <c>appsettings.json</c> file.
 	/// </summary>
-	public const string SectionName = $"{ApplicationApiConfiguration.SectionName}:CORS";
+	public const string SectionName = $"{ConfigurationSectionNames.HttpApi}:CORS";
 
 	/// <summary>
 	/// CORS policies.

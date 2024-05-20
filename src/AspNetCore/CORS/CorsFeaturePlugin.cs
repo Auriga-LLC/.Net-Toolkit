@@ -3,7 +3,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Auriga.Toolkit.Configuration;
-using SharedMessages = Auriga.Toolkit.Logging.LogMessages;
 using Auriga.Toolkit.Plugins;
 
 namespace Auriga.Toolkit.AspNetCore.CORS;
@@ -34,7 +33,7 @@ internal sealed class CorsFeaturePlugin : FeaturePlugin, IConfigurationCheckerPl
 			Enabled = false;
 		}
 
-		_corsFeatureConfiguration = configuration.GetConfigurationModel<CorsFeatureOptions>(CorsFeatureOptions.SectionName);
+		_corsFeatureConfiguration = configuration.GetConfiguration<CorsFeatureOptions>(CorsFeatureOptions.SectionName);
 		Enabled = _corsFeatureConfiguration?.Enabled == true;
 
 		_defaultPolicyName = _corsFeatureConfiguration?.Policies?.FirstOrDefault(p => p.Value.IsDefault).Key ?? _defaultPolicyName;
@@ -51,26 +50,26 @@ internal sealed class CorsFeaturePlugin : FeaturePlugin, IConfigurationCheckerPl
 		}
 
 		// Register config
-		_ = services.RegisterConfigurationIfExists<CorsFeatureOptions>(configuration, CorsFeatureOptions.SectionName);
-
-		return services.AddCors(options =>
-		{
-			if (_corsFeatureConfiguration?.Policies?.Any() != true)
+		return services
+			.ConfigureOptions<CorsFeatureOptions>(configuration, CorsFeatureOptions.SectionName)
+			.AddCors(options =>
 			{
-				options.AddPolicy(AllowAllPolicyName, configurePolicy: policyBuilder =>
+				if (_corsFeatureConfiguration?.Policies?.Any() != true)
 				{
-					_ = policyBuilder
-						.AllowAnyHeader()
-						.AllowAnyMethod()
-						.AllowAnyOrigin();
-				});
+					options.AddPolicy(AllowAllPolicyName, configurePolicy: policyBuilder =>
+					{
+						_ = policyBuilder
+							.AllowAnyHeader()
+							.AllowAnyMethod()
+							.AllowAnyOrigin();
+					});
 
-				return;
-			}
+					return;
+				}
 
-			foreach ((string policyName, CorsPolicyOptions policyConfig) in _corsFeatureConfiguration.Policies)
-			{
-				options.AddPolicy(policyName, configurePolicy: policyBuilder =>
+				foreach ((string policyName, CorsPolicyOptions policyConfig) in _corsFeatureConfiguration.Policies)
+				{
+					options.AddPolicy(policyName, configurePolicy: policyBuilder =>
 					{
 						_ = policyConfig.AllowedOrigins?.Count > 0
 							? policyBuilder.WithOrigins([..policyConfig.AllowedOrigins])
@@ -89,8 +88,8 @@ internal sealed class CorsFeaturePlugin : FeaturePlugin, IConfigurationCheckerPl
 							_ = policyBuilder.AllowCredentials();
 						}
 					});
-			}
-		});
+				}
+			});
 	}
 
 	/// <inheritdoc/>

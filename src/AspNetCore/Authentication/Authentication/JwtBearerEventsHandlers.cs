@@ -5,6 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.Net.Http.Headers;
 using Auriga.Toolkit.Audit.Abstractions;
+using Auriga.Toolkit.Authentication.OpenIdConnect;
 using Auriga.Toolkit.Runtime;
 
 namespace Auriga.Toolkit.AspNetCore.Authentication;
@@ -14,32 +15,33 @@ namespace Auriga.Toolkit.AspNetCore.Authentication;
 /// </summary>
 internal static class JwtBearerEventsHandlers
 {
-	public static void OnConfigure(JwtBearerOptions o, AuthenticationFeatureOptions authPolicy)
+	public static void OnConfigure(JwtBearerOptions o, AuthenticationFeatureOptions authenticationOptions)
 	{
 		o.RequireHttpsMetadata = true;
 		o.SaveToken = true;
-		o.MetadataAddress = authPolicy.Connection?.Authority?.AbsoluteUri + "/.well-known/openid-configuration";
+		o.MetadataAddress = DefaultOpenIdConnectWellKnownMetadataUrlProvider.GetWellKnownMetadataUrl(
+			authenticationOptions.AuthorityConnection.InternalEndpoint,
+			authenticationOptions.AuthorityConnection.Realm);
 
 		o.TokenValidationParameters = new TokenValidationParameters
 		{
 			// NOTE: Usually we don't need to set the issuer since the middleware will extract it
 			// from the .well-known endpoint provided above, but since we are using the container name in
 			// the above URL which is not what is published issueer by the well-known, we are setting it here.
-			ValidateIssuer = true,
 			ValidateIssuerSigningKey = true,
-			ValidIssuer = authPolicy.Connection?.Authority?.AbsoluteUri,
-
-			ValidateAudience = true,
-			ValidAudience = authPolicy.Connection?.Audience,
-
-			ValidateLifetime = true,
+			ValidIssuers = new []
+			{
+				authenticationOptions.AuthorityConnection.PublicAuthorityUrl.AbsoluteUri,
+				authenticationOptions.AuthorityConnection.InternalAuthorityUrl.AbsoluteUri
+			},
+			ValidAudience = authenticationOptions.AuthorityConnection.Audience,
 			ClockSkew = TimeSpan.FromMinutes(1)
 		};
 		// NOTE: In "Debug" mode we can allow to violate some auth policies
 		if (!EnvironmentHelper.IsInProductionMode())
 		{
-			o.RequireHttpsMetadata = authPolicy.Connection?.AllowInSecureCommunication == false;
-			o.TokenValidationParameters.ValidateLifetime = authPolicy.TokenPolicy?.AllowExpired == false;
+			o.RequireHttpsMetadata = authenticationOptions.AuthorityConnection.AllowInSecureCommunication == false;
+			o.TokenValidationParameters.ValidateLifetime = authenticationOptions.TokenPolicy?.AllowExpired == false;
 		}
 
 		o.Events = new JwtBearerEvents

@@ -2,7 +2,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Text.Json.Serialization;
 using Newtonsoft.Json;
 
-namespace Toolkit.Extensions.Authentication.OpenIdConnect;
+namespace Auriga.Toolkit.Authentication.OpenIdConnect;
 
 /// <summary>
 /// Auth provider response model.

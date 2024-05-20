@@ -13,14 +13,12 @@ namespace Auriga.Toolkit.AspNetCore.Authentication;
 /// <example>
 /// Usage in "appsettings.json*:
 /// <code>
-/// "AppSettings": {
-/// 	"HTTP": {
-/// 		...
-/// 		"Authentication": {
-/// 			"Enabled" : true,
-///			},
-///			...
-///		}
+/// {
+///   "HTTP": {
+///  	  "Authentication": {
+///  	    "Enabled" : true
+///     }
+///   }
 /// }
 /// </code>
 /// </example>
@@ -30,12 +28,12 @@ public sealed class AuthenticationFeatureOptions : PolicyOptions
 	/// <summary>
 	/// Section name in <c>appsettings.json</c> file.
 	/// </summary>
-	public const string SectionName = $"{ApplicationApiConfiguration.SectionName}:Authentication";
+	public const string SectionName = $"{ConfigurationSectionNames.HttpApi}:Authentication";
 
 	/// <summary>
-	/// Gets connection configuration.
+	/// Gets authority connection options.
 	/// </summary>
-	public AuthenticationProviderConnectionOptions? Connection { get; init; }
+	public required AuthorityConnectionOptions AuthorityConnection { get; init; }
 
 	/// <summary>
 	/// Gets cookie policy configuration.

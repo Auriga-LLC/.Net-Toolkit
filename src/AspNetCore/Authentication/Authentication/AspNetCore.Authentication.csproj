@@ -14,6 +14,8 @@
 		<PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="$(DotNetFrameworkPackagesVersion)"/>
 	</ItemGroup>
 	<ItemGroup>
+		<ProjectReference Include="..\..\..\Authentication\OpenIdConnect\Abstractions\Authentication.OpenIdConnect.Abstractions.csproj" />
+		<ProjectReference Include="..\..\..\Clients\Http\Authentication\Clients.Http.Authentication.csproj" />
 		<ProjectReference Include="..\..\..\Logging\AspNetCore\Abstractions\Logging.AspNetCore.Abstractions.csproj"/>
 		<ProjectReference Include="..\..\..\Logging\Audit\Abstractions\Audit.Abstractions.csproj"/>
 		<ProjectReference Include="..\..\..\Plugins\AspNetCore\Abstractions\Plugins.AspNetCore.Abstractions.csproj" />
