@@ -1,0 +1,8 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<ItemGroup>
+		<ProjectReference Include="..\..\Logging\Abstractions\Logging.Abstractions.csproj"/>
+	</ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="$(DotNetFrameworkPackagesVersion)" />
+	</ItemGroup>
+</Project>

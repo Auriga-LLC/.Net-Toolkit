@@ -1,0 +1,12 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <ItemGroup>
+    <PackageReference Include="RedLock.net" Version="2.3.2" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Caching\Caching\Caching.csproj" />
+    <ProjectReference Include="..\..\Configuration\Abstractions\Configuration.Abstractions.csproj" />
+    <ProjectReference Include="..\Abstractions\DistributedLock.Abstractions.csproj" />
+    <ProjectReference Include="..\..\Clients\Abstractions\Clients.Abstractions.csproj" />
+    <ProjectReference Include="..\..\Plugins\Configuration\Abstractions\Plugins.Configuration.Abstractions.csproj" />
+  </ItemGroup>
+</Project>
