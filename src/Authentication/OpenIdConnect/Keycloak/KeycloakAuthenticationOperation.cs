@@ -1,6 +1,6 @@
 using System.ComponentModel;
 
-namespace Toolkit.Extensions.Authentication.OpenIdConnect;
+namespace Auriga.Toolkit.Authentication.OpenIdConnect;
 
 /// <summary>
 /// API operation types and their Urls.

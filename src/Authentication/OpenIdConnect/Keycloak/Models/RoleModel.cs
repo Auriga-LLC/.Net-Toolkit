@@ -1,7 +1,7 @@
 using System.Diagnostics.CodeAnalysis;
 using Newtonsoft.Json;
 
-namespace Toolkit.Extensions.Authentication.OpenIdConnect.Keycloak.Models;
+namespace Auriga.Toolkit.Authentication.OpenIdConnect.Keycloak.Models;
 
 /// <summary>
 /// Auth provider role model.

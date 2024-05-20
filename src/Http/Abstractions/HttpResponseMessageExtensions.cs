@@ -1,4 +1,4 @@
-namespace Toolkit.Extensions.Http;
+namespace Auriga.Toolkit.Http;
 
 public static class HttpResponseMessageExtensions
 {

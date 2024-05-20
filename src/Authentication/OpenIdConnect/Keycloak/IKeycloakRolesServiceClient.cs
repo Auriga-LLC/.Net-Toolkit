@@ -1,7 +1,7 @@
-using Toolkit.Extensions.Authentication.OpenIdConnect.Keycloak.Models;
-using Toolkit.Extensions.Runtime;
+using Auriga.Toolkit.Authentication.OpenIdConnect.Keycloak.Models;
+using Auriga.Toolkit.Runtime;
 
-namespace Toolkit.Extensions.Authentication.OpenIdConnect;
+namespace Auriga.Toolkit.Authentication.OpenIdConnect;
 
 public interface IKeycloakRolesServiceClient {
 	Task<OperationContext<RolesAndUsers?>> GetRolesAndUsersAsync(CancellationToken cancellationToken = default);

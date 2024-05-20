@@ -2,7 +2,7 @@ using System.Collections.Concurrent;
 using Microsoft.IdentityModel.Protocols;
 using Microsoft.IdentityModel.Protocols.OpenIdConnect;
 
-namespace Toolkit.Extensions.Authentication.OpenIdConnect;
+namespace Auriga.Toolkit.Authentication.OpenIdConnect;
 
 /// <summary>
 /// Keycloak-specific OpenId configuration provider.

@@ -2,11 +2,11 @@ using System.Globalization;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Protocols.OpenIdConnect;
-using Toolkit.Extensions.Authentication.Abstractions;
-using Toolkit.Extensions.Clients.Http;
-using Toolkit.Extensions.Runtime;
+using Auriga.Toolkit.Authentication.Abstractions;
+using Auriga.Toolkit.Clients.Http;
+using Auriga.Toolkit.Runtime;
 
-namespace Toolkit.Extensions.Authentication.OpenIdConnect;
+namespace Auriga.Toolkit.Authentication.OpenIdConnect;
 
 /// <summary>
 ///	Keycloak service account client.
@@ -29,7 +29,7 @@ internal sealed class KeycloakAuthenticationService(
 	{
 		var result = new OperationContext<string>();
 
-		OpenIdConnectConfiguration openIdConfiguration = await urlProvider.GetConfigurationAsync(configuration.Value.Endpoint, configuration.Value.Realm, cancellationToken)
+		OpenIdConnectConfiguration openIdConfiguration = await urlProvider.GetConfigurationAsync(configuration.Value.InternalEndpoint, configuration.Value.Realm, cancellationToken)
 			.ConfigureAwait(false);
 		string loginRedirectUrl = string.Format(
 			CultureInfo.InvariantCulture,
@@ -70,7 +70,7 @@ internal sealed class KeycloakAuthenticationService(
 			throw new InvalidOperationException("Missing AuthorizationPolicy");
     }
 
-		OpenIdConnectConfiguration requestUrlConfiguration = await urlProvider.GetConfigurationAsync(configuration.Value.Endpoint, configuration.Value.Realm, cancellationToken)
+		OpenIdConnectConfiguration requestUrlConfiguration = await urlProvider.GetConfigurationAsync(configuration.Value.InternalEndpoint, configuration.Value.Realm, cancellationToken)
 			.ConfigureAwait(false);
 
 		var tokenRequestContent = new Dictionary<string, string>
@@ -133,7 +133,7 @@ internal sealed class KeycloakAuthenticationService(
 			throw new InvalidOperationException("Missing AuthorizationPolicy");
 		}
 
-		OpenIdConnectConfiguration requestUrlConfig = await urlProvider.GetConfigurationAsync(configuration.Value.Endpoint, configuration.Value.Realm, cancellationToken)
+		OpenIdConnectConfiguration requestUrlConfig = await urlProvider.GetConfigurationAsync(configuration.Value.InternalEndpoint, configuration.Value.Realm, cancellationToken)
 			.ConfigureAwait(false);
 		string logoutUrl = string.Format(
 			CultureInfo.InvariantCulture,
@@ -166,7 +166,7 @@ internal sealed class KeycloakAuthenticationService(
 			throw new InvalidOperationException("Missing AuthorizationPolicy");
 		}
 
-		OpenIdConnectConfiguration requestUrlConfig = await urlProvider.GetConfigurationAsync(configuration.Value.Endpoint, configuration.Value.Realm, cancellationToken)
+		OpenIdConnectConfiguration requestUrlConfig = await urlProvider.GetConfigurationAsync(configuration.Value.InternalEndpoint, configuration.Value.Realm, cancellationToken)
 			.ConfigureAwait(false);
 
 		using var message = new HttpRequestMessage(

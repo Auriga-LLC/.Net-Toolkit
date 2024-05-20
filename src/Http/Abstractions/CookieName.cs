@@ -1,6 +1,6 @@
 using System.Diagnostics.CodeAnalysis;
 
-namespace Toolkit.Extensions.Http;
+namespace Auriga.Toolkit.Http;
 
 /// <summary>
 /// List of well known cookie names.

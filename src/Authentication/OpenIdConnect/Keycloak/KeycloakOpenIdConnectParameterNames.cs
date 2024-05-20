@@ -1,4 +1,4 @@
-namespace Toolkit.Extensions.Authentication.OpenIdConnect;
+namespace Auriga.Toolkit.Authentication.OpenIdConnect;
 
 /// <summary>
 /// Keycloak-specific OpenID connect parameter names.

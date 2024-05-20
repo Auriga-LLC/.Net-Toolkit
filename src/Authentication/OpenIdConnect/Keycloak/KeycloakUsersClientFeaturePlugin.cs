@@ -1,10 +1,10 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Toolkit.Extensions.Clients.Http;
-using Toolkit.Extensions.Configuration;
-using Toolkit.Extensions.Plugins;
+using Auriga.Toolkit.Clients.Http;
+using Auriga.Toolkit.Configuration;
+using Auriga.Toolkit.Plugins;
 
-namespace Toolkit.Extensions.Authentication.OpenIdConnect;
+namespace Auriga.Toolkit.Authentication.OpenIdConnect;
 
 /// <summary>
 /// Keycloak OpenID connect client feature plugin.
@@ -20,7 +20,7 @@ internal sealed class KeycloakUsersClientFeaturePlugin : FeaturePlugin, IConfigu
 	/// <inheritdoc/>
 	public IConfiguration CheckConfiguration(IConfiguration configuration)
 	{
-		Enabled = configuration.GetConfigurationModel<OpenIdConnectServiceConnectionOptions>(OpenIdConnectServiceConnectionOptions.SectionName) != null;
+		Enabled = configuration.GetConfiguration<OpenIdConnectServiceConnectionOptions>(OpenIdConnectServiceConnectionOptions.SectionName) != null;
 		return configuration;
 	}
 

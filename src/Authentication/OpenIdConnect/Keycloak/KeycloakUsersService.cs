@@ -3,10 +3,10 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Protocols.OpenIdConnect;
 using Microsoft.Net.Http.Headers;
-using Toolkit.Extensions.Clients.Http;
-using Toolkit.Extensions.Runtime;
+using Auriga.Toolkit.Clients.Http;
+using Auriga.Toolkit.Runtime;
 
-namespace Toolkit.Extensions.Authentication.OpenIdConnect;
+namespace Auriga.Toolkit.Authentication.OpenIdConnect;
 
 /// <summary>
 ///	Keycloak users client.
@@ -29,7 +29,7 @@ internal sealed class KeycloakUsersService(
 		string autheticationData,
 		CancellationToken cancellationToken = default)
 	{
-		OpenIdConnectConfiguration requestUrl = await urlProvider.GetConfigurationAsync(connectionOptions.Value.Endpoint, connectionOptions.Value.Realm, cancellationToken)
+		OpenIdConnectConfiguration requestUrl = await urlProvider.GetConfigurationAsync(connectionOptions.Value.InternalEndpoint, connectionOptions.Value.Realm, cancellationToken)
 			.ConfigureAwait(false);
 		using var message = new HttpRequestMessage(HttpMethod.Get, requestUrl.UserInfoEndpoint);
 		// Preset impersonated token

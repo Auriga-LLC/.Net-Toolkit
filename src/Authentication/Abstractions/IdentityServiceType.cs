@@ -1,4 +1,4 @@
-namespace Toolkit.Extensions.Authentication.Abstractions;
+namespace Auriga.Toolkit.Authentication.Abstractions;
 
 public enum IdentityServiceType
 {

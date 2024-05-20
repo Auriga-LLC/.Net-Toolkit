@@ -1,6 +1,6 @@
 using System.Diagnostics.CodeAnalysis;
 
-namespace Toolkit.Extensions.Authentication.OpenIdConnect.Keycloak.Models;
+namespace Auriga.Toolkit.Authentication.OpenIdConnect.Keycloak.Models;
 
 [ExcludeFromCodeCoverage]
 public sealed class RolesAndUsers
