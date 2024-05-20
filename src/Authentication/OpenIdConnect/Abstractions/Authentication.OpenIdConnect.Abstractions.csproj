@@ -15,5 +15,6 @@
 	</ItemGroup>
 	<ItemGroup>
 		<ProjectReference Include="..\..\..\Clients\Http\Abstractions\Clients.Http.Abstractions.csproj" />
+		<ProjectReference Include="..\..\..\Serialization\Json\Serialization.Json.csproj"/>
 	</ItemGroup>
 </Project>
