@@ -4,7 +4,7 @@
 		<DotNetVersionUsed>8</DotNetVersionUsed>
 		<DotNetFrameworkPackagesVersion>$(DotNetVersionUsed).0.0</DotNetFrameworkPackagesVersion>
 
-		<RootProductNamespace>Auriga.Toolkit</RootProductNamespace>
+		<RootProductNamespace>AurigaLLC.Toolkit</RootProductNamespace>
 		<RootNamespace>$(RootProductNamespace).$(MsBuildProjectName)</RootNamespace>
 
     <ImplicitUsings>enable</ImplicitUsings>
@@ -49,6 +49,12 @@
 		<PackageId>$(RootNamespace)</PackageId>
 		<IncludeSymbols>false</IncludeSymbols>
 		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
+
+		<Authors>Dmitry Besedin (endarvaluk)</Authors>
+		<Company>Auriga LLC</Company>
+		<PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<RepositoryUrl>https://github.com/Auriga-LLC/.Net-Toolkit.git</RepositoryUrl>
 
 		<AssemblyVersion>$(Version)</AssemblyVersion>
 		<Version>0.0.1</Version>
