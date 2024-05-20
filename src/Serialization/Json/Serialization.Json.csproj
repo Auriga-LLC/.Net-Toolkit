@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <ItemGroup>
+    <PackageReference Include="NJsonSchema.NewtonsoftJson" Version="11.0.0"/>
+	</ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\..\Plugins\DependencyInjection\Abstractions\Plugins.DependencyInjection.Abstractions.csproj" />
+		<ProjectReference Include="..\..\Logging\Abstractions\Logging.Abstractions.csproj" />
+		<ProjectReference Include="..\..\Plugins\Abstractions\Plugins.Abstractions.csproj" />
+		<ProjectReference Include="..\..\Runtime\Abstractions\Runtime.Abstractions.csproj" />
+  </ItemGroup>
+</Project>
